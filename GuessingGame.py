@@ -1,23 +1,32 @@
 # Name: Daniel Momoh
-# student ID: 041114358
-# Date: 2021-10-10
+# Student ID: 041114358
+# Date: 2025-01-28
 # Lab 4 : Guessing Game
+
 import random
 
 def main():
-# Controls the game flow.
+ 
+    # Controls the main game flow. 
+    # Handles the initial welcome and the loop to play multiple games.
+
     playing = True
     while playing:
         print("Welcome to the Guessing Game!")
         play_choice = input("Do you want to play? (yes/no): ").lower()
         if play_choice == "yes":
-            play()
+            play()  # Start a new game
         else:
             print("Goodbye!")
-            playing = False
+            playing = False  # End the game loop
+
 def play():
-    secret_number = random.randint(1, 100)
-    attempts = 5
+   
+    # Handles the logic of a single game.
+    # Generates a random number and allows the player to guess.
+
+    secret_number = random.randint(1, 100)  # Generate a random number between 1 and 100
+    attempts = 5  # Initialize the number of attempts
 
     print("I'm thinking of a number between 1 and 100.")
 
@@ -26,7 +35,8 @@ def play():
 
         if guess == secret_number:
             print("Congratulations! You guessed the number!")
-            return 
+            return  # End the current game
+
         elif guess < secret_number:
             print("Your guess is too low! Try again.")
         else:
@@ -37,6 +47,9 @@ def play():
     print(f"Sorry, you've used all your guesses. The secret number was {secret_number}.")
 
 def integer_input(min_value, max_value, message):
+
+    # This function gets valid integer input from the user within a specified range.
+    # It handles invalid input (non-integers) and out-of-range values.
 
     while True:
         try:
